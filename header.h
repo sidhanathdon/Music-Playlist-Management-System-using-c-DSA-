@@ -25,12 +25,12 @@ struct Node {
 };
 
 /* Function Declarations */
-void InsertMusic(); /* Insert music in playlist*/
-void DeleteMusic(); /* Delete music in playlist*/
-void ShowPlaylist(); /* shows music playlist*/
-void NextSong(); /* Plays the next song*/
-void PreviousSong();  /* Plays the previous song*/
-void FirstSong();  /* Plays the first song*/
-void LastSong();  /* Plays the last song*/
-void SearchMusic();  /* searches the song and places it*/
+void insertMusic(); /* Insert music in playlist*/
+void deleteMusic(); /* Delete music in playlist*/
+void showPlaylist(); /* shows music playlist*/
+void nextSong(); /* Plays the next song*/
+void previousSong();  /* Plays the previous song*/
+void firstSong();  /* Plays the first song*/
+void lastSong();  /* Plays the last song*/
+void searchMusic();  /* searches the song and places it*/
 
