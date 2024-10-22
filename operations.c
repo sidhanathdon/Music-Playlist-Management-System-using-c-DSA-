@@ -7,6 +7,7 @@
  * 
  * Author: Sidhanath Verekar, Shubhang Rege
  * Date: 2024-10-21
+   modified: 2024-10-22
  */
 
 #include "header.h"
@@ -19,7 +20,7 @@ char temp[40];                    /**< Temporary buffer for song input */
 /**
  * @brief Inserts a new song into the playlist.
  */
-void InsertMusic() {
+void insertMusic() {
     printf("Enter the music name:\n");
     while ((getchar()) != '\n');  // Clear input buffer
     scanf("%[^\n]%*c", temp);     // Read input till newline
@@ -47,7 +48,7 @@ void InsertMusic() {
 /**
  * @brief Deletes a song from the playlist.
  */
-void DeleteMusic() {
+void deleteMusic() {
     if (head == NULL) {
         printf("There is no music to delete.\n");
         return;
@@ -86,7 +87,7 @@ void DeleteMusic() {
 /**
  * @brief Displays the playlist.
  */
-void ShowPlaylist() {
+void showPlaylist() {
     if (head == NULL) {
         printf("No music in the playlist.\n");
         return;
@@ -105,7 +106,7 @@ void ShowPlaylist() {
 /**
  * @brief Plays the next song in the playlist.
  */
-void NextSong() {
+void nextSong() {
     if (current_node == NULL) {
         printf("No songs in the playlist!\n");
         return;
@@ -117,7 +118,7 @@ void NextSong() {
 /**
  * @brief Plays the previous song in the playlist.
  */
-void PreviousSong() {
+void previousSong() {
     if (current_node == NULL) {
         printf("No songs in the playlist!\n");
         return;
@@ -129,7 +130,7 @@ void PreviousSong() {
 /**
  * @brief Plays the first song in the playlist.
  */
-void FirstSong() {
+void firstSong() {
     if (head == NULL) {
         printf("No songs in the playlist!\n");
         return;
@@ -141,7 +142,7 @@ void FirstSong() {
 /**
  * @brief Plays the last song in the playlist.
  */
-void LastSong() {
+void lastSong() {
     if (head == NULL) {
         printf("No songs in the playlist!\n");
         return;
@@ -153,7 +154,7 @@ void LastSong() {
 /**
  * @brief Searches for a specific song in the playlist.
  */
-void SearchMusic() {
+void searchMusic() {
     if (head == NULL) {
         printf("No music to search.\n");
         return;
