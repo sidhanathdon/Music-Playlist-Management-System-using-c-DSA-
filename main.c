@@ -7,6 +7,7 @@
  * 
  * Author: Sidhanath Verekar, Shubhang Rege
  * Date: 2024-10-21
+   modified:2024-10-22
  */
 
 #include "header.h"
@@ -28,14 +29,14 @@ int main() {
         scanf("%d", &choice);
         
         switch (choice) {
-            case 1: InsertMusic(); break;
-            case 2: DeleteMusic(); break;
-            case 3: ShowPlaylist(); break;
-            case 4: NextSong(); break;
-            case 5: PreviousSong(); break;
-            case 6: FirstSong(); break;
-            case 7: LastSong(); break;
-            case 8: SearchMusic(); break;
+            case 1: insertMusic(); break;
+            case 2: deleteMusic(); break;
+            case 3: showPlaylist(); break;
+            case 4: nextSong(); break;
+            case 5: previousSong(); break;
+            case 6: firstSong(); break;
+            case 7: lastSong(); break;
+            case 8: searchMusic(); break;
             case 9: break;
             default: printf("Invalid input.\n");
         }
