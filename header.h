@@ -7,6 +7,7 @@
  * 
  * Author: Sidhanath Verekar, Shubhang Rege
  * Date: 2024-10-21
+   Modified: 2024-10-22
  */
 
 #include <stdio.h>
@@ -24,12 +25,12 @@ struct Node {
 };
 
 /* Function Declarations */
-void InsertMusic();
-void DeleteMusic();
-void ShowPlaylist();
-void NextSong();
-void PreviousSong();
-void FirstSong();
-void LastSong();
-void SearchMusic();
+void InsertMusic(); /* Insert music in playlist*/
+void DeleteMusic(); /* Delete music in playlist*/
+void ShowPlaylist(); /* shows music playlist*/
+void NextSong(); /* Plays the next song*/
+void PreviousSong();  /* Plays the previous song*/
+void FirstSong();  /* Plays the first song*/
+void LastSong();  /* Plays the last song*/
+void SearchMusic();  /* searches the song and places it*/
 
