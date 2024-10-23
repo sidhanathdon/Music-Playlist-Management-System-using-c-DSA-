@@ -3,6 +3,7 @@
 # main.c and operations.c into object files and then linking them together.
 # Author: Sidhanath Verekar, Shubhang Rege
 # Date: 2024-10-21
+#updated 2024-10-23
 
 # Rule to link object files and create the final executable
 Music_Playlist_Management: main.o operations.o
