@@ -74,8 +74,8 @@ void deleteMusic() {
             }
             struct Node* previous_song= ptr->prev;
             struct Node* next_song= ptr->next;
-            prev->next = next_song;
-            next->prev = previous_song;
+            previous_song->next = next_song;
+            next_song->prev = previous_song;
             if (ptr == head) {
                 head = next;
             }
