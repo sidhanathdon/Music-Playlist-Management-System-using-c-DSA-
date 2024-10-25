@@ -5,7 +5,7 @@
  * This header file defines the structure of a Node for a circular doubly linked list 
  * and declares functions used for managing the playlist.
  * 
- * Author: Sidhanath Verekar, Shubhang Rege
+ * Author: Sidhanath Verekar rollno:49 , Shubhang Rege rollno:46
  * Date: 2024-10-21
    Modified: 2024-10-22
  */
