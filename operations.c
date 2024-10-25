@@ -5,9 +5,8 @@
  * This file contains the function definitions for operations such as inserting, deleting, 
  * and displaying songs in the playlist. The playlist is represented as a circular doubly linked list.
  * 
- * Author: Sidhanath Verekar, Shubhang Rege
+ * Author: Sidhanath Verekar rollno:49 , Shubhang Rege rollno:46
  * Date: 2024-10-21
-   modified: 2024-10-22
  */
 
 #include "header.h"
@@ -15,26 +14,29 @@
 /* Global Variables */
 struct Node* head = NULL;         /**< Head of the playlist */
 struct Node* current_node = NULL; /**< Pointer to the current playing song */
-char temp[40];                    /**< Temporary buffer for song input */
+char song_buffer[40];             /**< Temporary buffer for song input */
 
 /**
  * @brief Inserts a new song into the playlist.
+ * @pre None
+ * @post The song is added at the end of the playlist and the list remains circular.
  */
 void insertMusic() {
     printf("Enter the music name:\n");
     while ((getchar()) != '\n');  // Clear input buffer
-    scanf("%[^\n]%*c", temp);     // Read input till newline
+    scanf("%[^\n]%*c", song_buffer);  // Read input till newline
     
     struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
     if (newnode == NULL) {
         printf("Memory allocation failed!\n");
         return;
     }
-    strcpy(newnode->data, temp);
+    strcpy(newnode->data, song_buffer);
     
     if (head == NULL) {
         newnode->next = newnode->prev = newnode;
         head = current_node = newnode;
+        printf("Music added to the playlist.\n");
         return;
     }
     
@@ -43,10 +45,13 @@ void insertMusic() {
     last->next = newnode;
     newnode->next = head;
     head->prev = newnode;
+    printf("Music added to the playlist.\n");
 }
 
 /**
  * @brief Deletes a song from the playlist.
+ * @pre The playlist must have at least one song.
+ * @post The song is removed, and the list remains circular.
  */
 void deleteMusic() {
     if (head == NULL) {
@@ -56,21 +61,21 @@ void deleteMusic() {
     
     printf("Enter the music to delete:\n");
     while ((getchar()) != '\n');  // Clear input buffer
-    scanf("%[^\n]%*c", temp);
+    scanf("%[^\n]%*c", song_buffer);
     
     struct Node* ptr = head;
     do {
-        if (strcmp(ptr->data, temp) == 0) {
+        if (strcmp(ptr->data, song_buffer) == 0) {
             if (ptr->next == ptr) {  // Only one node
                 printf("One file is deleted! Playlist is empty now.\n");
                 head = NULL;
                 free(ptr);
                 return;
             }
-            struct Node* prev = ptr->prev;
-            struct Node* next = ptr->next;
-            prev->next = next;
-            next->prev = prev;
+            struct Node* previous_song= ptr->prev;
+            struct Node* next_song= ptr->next;
+            prev->next = next_song;
+            next->prev = previous_song;
             if (ptr == head) {
                 head = next;
             }
@@ -86,6 +91,8 @@ void deleteMusic() {
 
 /**
  * @brief Displays the playlist.
+ * @pre The playlist must contain at least one song.
+ * @post Outputs the entire playlist in order.
  */
 void showPlaylist() {
     if (head == NULL) {
@@ -105,6 +112,8 @@ void showPlaylist() {
 
 /**
  * @brief Plays the next song in the playlist.
+ * @pre The playlist must not be empty.
+ * @post The next song is played.
  */
 void nextSong() {
     if (current_node == NULL) {
@@ -117,6 +126,8 @@ void nextSong() {
 
 /**
  * @brief Plays the previous song in the playlist.
+ * @pre The playlist must not be empty.
+ * @post The previous song is played.
  */
 void previousSong() {
     if (current_node == NULL) {
@@ -129,6 +140,8 @@ void previousSong() {
 
 /**
  * @brief Plays the first song in the playlist.
+ * @pre The playlist must not be empty.
+ * @post The first song is played.
  */
 void firstSong() {
     if (head == NULL) {
@@ -141,6 +154,8 @@ void firstSong() {
 
 /**
  * @brief Plays the last song in the playlist.
+ * @pre The playlist must not be empty.
+ * @post The last song is played.
  */
 void lastSong() {
     if (head == NULL) {
@@ -153,6 +168,8 @@ void lastSong() {
 
 /**
  * @brief Searches for a specific song in the playlist.
+ * @pre The playlist must not be empty.
+ * @post If found, the song is played.
  */
 void searchMusic() {
     if (head == NULL) {
@@ -162,11 +179,11 @@ void searchMusic() {
     
     printf("Enter the music to search:\n");
     while ((getchar()) != '\n');  // Clear input buffer
-    scanf("%[^\n]%*c", temp);
+    scanf("%[^\n]%*c", song_buffer);
     
     struct Node* ptr = head;
     do {
-        if (strcmp(ptr->data, temp) == 0) {
+        if (strcmp(ptr->data, song_buffer) == 0) {
             printf("Music found!\n");
             printf("Playing song: %s\n", ptr->data);
             return;
@@ -176,4 +193,3 @@ void searchMusic() {
     
     printf("Searched music is not found.\n");
 }
-
